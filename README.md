@@ -1,2 +1,3 @@
-# twitter_powerBI
-A brief example of a project using Power BI from Microsoft to do a short twitter analysis.
+# HTML-CSS Morgue
+
+A repository used to store information about web design tips, principles, etc.
