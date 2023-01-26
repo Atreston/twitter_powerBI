@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css" type="text/css">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <title>Left Column Layout</title>
+</head>
+
+<body class="flex flex-wrap">
+   <header class="w-full p-7 bg-red-100">
+      test
+   </header>
+
+   <nav class="hidden md:block md:w-1/5 lg:w-1/5 max-h-[400px] bg-yellow-100">
+      Nav
+   </nav>
+
+   <main class="w-full md:w-4/5 lg:w-3/5 bg-green-100">
+      <div class="container w-full h-20 py-[700px]">
+         <h1 class="bg-gray-100 text-3xl font-bold underline">tailwindcss test</h1>
+      </div>
+   </main>
+
+   <aside class="hidden lg:block w-1/5 bg-blue-100">
+      test
+   </aside>
+
+   <footer class="w-full p-7 bg-gray-100 bottom-0">
+      <p>a Footer</p>
+   </footer>
+</body>
+
+</html>

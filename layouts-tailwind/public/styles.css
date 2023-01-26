@@ -1,0 +1,36 @@
+h1 {
+   color: #2f4f4f;
+   margin-bottom: 10px;
+}
+
+#main-nav {
+   margin-top: 10px;
+   list-style: none;
+   padding-left: 0;
+}
+
+#main-nav li {
+   display: inline-block;
+}
+
+#main-nav a {
+   color: white;
+   padding: 5px;
+   border-radius: 2px;
+   text-decoration: none;
+}
+
+a:link {
+   color: blue;
+}
+
+.footer {
+   padding: 15px 0;
+   text-align: center;
+   font-size: 14px;
+}
+
+.footer a {
+   color: inherit;
+   text-decoration: underline;
+}
