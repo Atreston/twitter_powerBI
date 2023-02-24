@@ -156,4 +156,78 @@ The most specific selector here is **4**, with one ID, so its color declaration 
 
 > Pseudo-class selectors (for example, `:hover`) and attribute selectors (for example, `[type="input"]`) each have the same specificity as a class selector. The universal selector (*) and combinators (>, +, ~) have no effect on specificity.
 
+#### A notation for specifity
 
+| Selector                   | IDs | Classes | Tags | Notation |
+|----------------------------|:---:|:-------:|:----:|:--------:|
+| html body header h1        | 0   | 0       | 4    | 0,0,4    |
+| body header.page-header h1 | 0   | 1       | 3    | 0,1,3    |
+| .page-header .title        | 0   | 2       | 0    | 0,2,0    |
+| #page-title                | 1   | 0       | 0    | 1,0,0    |
+
+#### Understanding source order
+
+The third and final step to resolving the cascade is source order. If the origin and the specificity are the same, then the declaration that appears later in the stylesheet—or appears in a stylesheet included later on the page—takes precedence.
+
+This means you can manipulate the source order to style your featured link. If you make the two conflicting selectors equal in specificity, then whichever appears last wins.
+
+```css
+.nav a {
+   color: white;
+   background-color: #13a4a4;
+   padding: 5px;
+   border-radius: 2px;
+   text-decoration: none;
+}
+
+/* Same specifity than the previous one (0,1,1) */
+/* This ruleset wins due to source order (last wins) */
+a.featured { 
+   background-color: orange;
+}
+```
+
+#### Link styles and source order
+
+The cascade is the reason this order matters: given the same specificity, later styles override earlier styles. 
+
+source order affects the cascade. For example, your selectors for styling links should go in a certain order.
+
+This listing shows styles for links on a page in the “correct” order.
+
+```css
+a:link {
+   color: blue;
+   text-decoration: none;
+}
+
+a:visited {
+   color: purple;
+}
+
+a:hover {
+   text-decoration: underline;
+}
+
+a:active {
+   color: red;
+}
+```
+
+The cascade is the reason this order matters: given the same specificity, later styles override earlier styles. If two or more of these states are true of one element at the same time, the last one can override the others. If the user hovers over a visited link, the hover styles take precedence. If the user activates the link (that is, clicks it) while hovering over it, the active styles take precedence.
+
+#### CASCADED VALUES
+
+The browser follows these three steps — **origin**, **specificity**, and **source order** to resolve every property for every element on the page. A declaration that “wins” the cascade is called a cascaded value.
+
+#### Inheritance
+
+The cascade is frequently conflated with the concept of inheritance. Although the two topics are related, you should understand each individually.
+
+It’s common to apply a font-family to the `<body>` element. All the ancestor elements within will then inherit this font; you don’t have to apply it explicitly to each element on the page.
+
+Not all properties are inherited, however. By default, only certain ones are. In general, these are the properties you’ll want to be inherited. They are primarily properties pertaining to text: `color`, `font`, `font-family`, `font-size`, `font-weight`, `font-variant`, `font-style`, `line-height`, `letter-spacing`, `text-align`, `text-indent`, `text-transform`, `white-space`, and `word-spacing`.
+
+### Special values
+
+There are two special values that you can apply to any property to help manipulate the cascade: `inherit` and `initial`.
